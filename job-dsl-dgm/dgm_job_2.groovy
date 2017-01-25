@@ -160,7 +160,7 @@ def dgm_build_jobs = [
 
   publishers {
     downstreamParameterized {
-      trigger("dgm-bcrm/${i['subsequent_job']}") {
+      trigger("${i['subsequent_job']}") {
         parameters {
           currentBuild()
         }
