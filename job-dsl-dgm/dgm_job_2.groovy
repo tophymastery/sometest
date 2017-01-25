@@ -189,7 +189,7 @@ def dgm_deploy_jobs = [
   job_name     = i['name'].replaceAll(" ", "-")
   build_branch = i.containsKey('branch') ? i['branch'] : 'master'
 
-  job("${job_name}/deploy-${current}") {
+  job("dgm/${job_name}") {
     description "Deploy job for dgm project "
     using "template-defaults"
     disabled(false)
