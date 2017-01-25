@@ -224,7 +224,7 @@ def dgm_deploy_jobs = [
 
           # Set STAGE environment variable
           # because is used in the deploy scripts
-          export STAGE=${current}
+          export STAGE=
 
           TARGET_FILE="deploy-\${STAGE}.sh"
           if [ -f \$TARGET_FILE ]; then
