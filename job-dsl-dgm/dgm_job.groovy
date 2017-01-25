@@ -35,6 +35,7 @@ def dependency_pipelines = [
       git {
         remote {
           url(i['repository'])
+          credentials('2')
         }
         branch(build_branch)
       }
