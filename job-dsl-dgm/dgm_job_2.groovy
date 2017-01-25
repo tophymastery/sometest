@@ -27,7 +27,7 @@ def dgm_dependency_jobs = [
     Configure of ${job_name}
     """.stripIndent().trim()
   disabled(false)
-  using "template-defaults"
+  //using "template-defaults"
 
   logRotator(-1, 5)
   quietPeriod(0)
@@ -117,7 +117,7 @@ def dgm_build_jobs = [
     """.stripIndent().trim()
 
   disabled(false)
-  using "template-defaults"
+  //using "template-defaults"
 
   label("${i['label']}")
 
@@ -191,7 +191,7 @@ def dgm_deploy_jobs = [
 
   job("dgm/${job_name}") {
     description "Deploy job for dgm project "
-    using "template-defaults"
+    //using "template-defaults"
     disabled(false)
 
     label("${i['label']}")
