@@ -21,7 +21,7 @@ def dgm_dependency_jobs = [
   job_name     = i['name'].replaceAll(" ", "-")
   build_branch = i.containsKey('branch') ? i['branch'] : 'master'
 
-  job("dgm/${job_name}") {
+  job("dgm-bcrm/${job_name}") {
 
   description """
     Configure of ${job_name}
@@ -110,7 +110,7 @@ def dgm_build_jobs = [
   repository   = i['repository']
   subsequent_job = i['subsequent_job']
 
-  job("dgm/${job_name}") {
+  job("dgm-bcrm/${job_name}") {
 
   description """
     Configure of ${job_name}
@@ -189,7 +189,7 @@ def dgm_deploy_jobs = [
   job_name     = i['name'].replaceAll(" ", "-")
   build_branch = i.containsKey('branch') ? i['branch'] : 'master'
 
-  job("dgm/${job_name}") {
+  job("dgm-bcrm/${job_name}") {
     description "Deploy job for dgm project "
     //using "template-defaults"
     disabled(false)
