@@ -92,14 +92,14 @@ def dgm_build_jobs = [
     repository: "git@bitbucket.org:engagelab/scb-bcrm.git",
     trigger: "H/5 * * * *",
     label: "sally",
-    subsequent_job: "test-job"
+    subsequent_job: "dgm-deploy-sit"
   ],
   [
     name: "dgm-cms-build",
     repository: "git@bitbucket.org:engagelab/scb-cms.git",
     trigger: "H/5 * * * *",
     label: "sally",
-    subsequent_job: "test-job"
+    subsequent_job: "dgm-deploy-sit"
   ]
 ].each { i ->
   job_name     = i['name'].replaceAll(" ", "-")
@@ -158,7 +158,12 @@ def dgm_build_jobs = [
 
   publishers {
     downstreamParameterized {
-      trigger("dgm-bcrm/${i['subsequent_job']}", "Complete") {
+      trigger("dgm-bcrm/${i['subsequent_job']}") {
+        block {
+          buildStepFailure('FAILURE')
+          failure('FAILURE')
+          unstable('UNSTABLE')
+        }
         parameters {
           currentBuild()
         }
