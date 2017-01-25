@@ -159,11 +159,6 @@ def dgm_build_jobs = [
   publishers {
     downstreamParameterized {
       trigger("dgm-bcrm/${i['subsequent_job']}") {
-        block {
-          buildStepFailure('FAILURE')
-          failure('FAILURE')
-          unstable('UNSTABLE')
-        }
         parameters {
           currentBuild()
         }
