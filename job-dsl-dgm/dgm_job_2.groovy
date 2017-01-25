@@ -246,7 +246,7 @@ buildPipelineView("dgm-bcrm/pipeline") {
   filterExecutors()
   title("CD Pipeline for bcrm")
   displayedBuilds(5)
-  selectedJob("dgm/dgm-bcrm-build")
+  selectedJob("dgm-bcrm/dgm-bcrm-build")
   alwaysAllowManualTrigger()
   showPipelineParameters()
   refreshFrequency(2)
