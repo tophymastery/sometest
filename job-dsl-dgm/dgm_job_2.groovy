@@ -95,20 +95,18 @@ def dgm_build_jobs = [
     repository: "git@bitbucket.org:engagelab/scb-bcrm.git",
     trigger: "H/5 * * * *",
     label: "sally",
-    subsequent_job: ""
+    subsequent_job: "test-job"
   ],
   [
     name: "dgm-cms-build",
     repository: "git@bitbucket.org:engagelab/scb-cms.git",
     trigger: "H/5 * * * *",
     label: "sally",
-    subsequent_job: ""
+    subsequent_job: "test-job"
   ]
 ].each { i ->
   job_name     = i['name'].replaceAll(" ", "-")
   build_branch = i.containsKey('branch') ? i['branch'] : 'master'
-  repository   = i['repository']
-  subsequent_job = i['subsequent_job']
 
   job("dgm-bcrm/${job_name}") {
 
@@ -124,7 +122,7 @@ def dgm_build_jobs = [
   scm {
     git {
       remote {
-        url('${repository}')
+        url("${i['repository']}")
       }
       branch('*/scb')
     }
@@ -161,7 +159,7 @@ def dgm_build_jobs = [
 
   publishers {
     downstreamParameterized {
-      trigger("dgm/${subsequent_job}") {
+      trigger("dgm-bcrm/${i['subsequent_job']}") {
         parameters {
           currentBuild()
         }
