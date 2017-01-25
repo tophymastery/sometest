@@ -4,14 +4,14 @@ def dgm_dependency_jobs = [
   [
     name: "dgm-bcrm-dependency-check",
     component: "bcrm",
-    repository: "git@bitbucket.org:engagelab/scb-bcrm.git",
+    repository: "https://tophymastery@bitbucket.org/engagelab/scb-bcrm.git",
     trigger: "@daily",
     subsequent_job: ""   
   ],
   [
     name: "dgm-cms-dependency-check",
     component: "cms",
-    repository: "git@bitbucket.org:engagelab/scb-cms.git",
+    repository: "https://tophymastery@bitbucket.org/engagelab/line-scb-cms.git",
     trigger: "@daily",
     subsequent_job: ""
   ]
@@ -90,14 +90,14 @@ def dgm_dependency_jobs = [
 def dgm_build_jobs = [
   [
     name: "dgm-bcrm-build",
-    repository: "git@bitbucket.org:engagelab/scb-bcrm.git",
+    repository: "https://tophymastery@bitbucket.org/engagelab/scb-bcrm.git",
     trigger: "H/5 * * * *",
     label: "sally",
     subsequent_job: "dgm-deploy-sit"
   ],
   [
     name: "dgm-cms-build",
-    repository: "git@bitbucket.org:engagelab/scb-cms.git",
+    repository: "https://tophymastery@bitbucket.org/engagelab/line-scb-cms.git",
     trigger: "H/5 * * * *",
     label: "sally",
     subsequent_job: "dgm-deploy-sit"
