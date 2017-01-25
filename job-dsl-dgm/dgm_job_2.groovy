@@ -77,7 +77,7 @@ def dgm_dependency_jobs = [
         htmlPublisherTarget {
           reportName("Dependency Check Report")
           reportDir("")
-          reportFiles("${i['component']}-dependency-check-report.html")
+          reportFiles("dependency-check-report.html")
           keepAll(true)
           alwaysLinkToLastBuild(true)
           allowMissing(true)
