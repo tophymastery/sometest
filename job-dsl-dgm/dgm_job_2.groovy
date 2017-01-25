@@ -28,12 +28,11 @@ def dgm_dependency_jobs = [
     """.stripIndent().trim()
   disabled(false)
   //using "template-defaults"
-
   logRotator(-1, 5)
   quietPeriod(0)
 
   label("${i['label']}")
-
+    
   scm {
     git {
       remote {
@@ -116,7 +115,9 @@ def dgm_build_jobs = [
 
   disabled(false)
   //using "template-defaults"
-
+  logRotator(-1, 5)
+  quietPeriod(0)
+    
   label("${i['label']}")
 
   scm {
@@ -191,7 +192,9 @@ def dgm_deploy_jobs = [
     description "Deploy job for dgm project "
     //using "template-defaults"
     disabled(false)
-
+    logRotator(-1, 5)
+    quietPeriod(0)
+    
     label("${i['label']}")
 
     scm {
