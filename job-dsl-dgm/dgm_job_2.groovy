@@ -35,6 +35,7 @@ def dgm_dependency_jobs = [
     git {
       remote {
         url("${i['repository']}")
+        credentials('2')
       }
       branch('*/scb')
     }
@@ -122,6 +123,7 @@ def dgm_build_jobs = [
     git {
       remote {
         url("${i['repository']}")
+        credentials('2')
       }
       branch('*/scb')
     }
@@ -199,6 +201,7 @@ def dgm_deploy_jobs = [
         git {
           remote {
             url("${i['repository']}")
+            credentials('2')
           }
         }
     }
