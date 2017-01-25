@@ -6,7 +6,6 @@ def dgm_dependency_jobs = [
     component: "bcrm",
     repository: "git@bitbucket.org:engagelab/scb-bcrm.git",
     trigger: "@daily",
-    label: "master",
     subsequent_job: ""   
   ],
   [
@@ -14,7 +13,6 @@ def dgm_dependency_jobs = [
     component: "cms",
     repository: "git@bitbucket.org:engagelab/scb-cms.git",
     trigger: "@daily",
-    label: "master",
     subsequent_job: ""
   ]
 ].each { i ->
@@ -31,7 +29,7 @@ def dgm_dependency_jobs = [
   logRotator(-1, 5)
   quietPeriod(0)
 
-  label("${i['label']}")
+  label("master")
     
   scm {
     git {
